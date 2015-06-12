@@ -1,0 +1,172 @@
+###########################################
+# 
+# Make a 4/3 earth radius line of sight
+# radio propagation chart.
+# DE N5JHH
+# Jesse Hamner, 2015.
+# 
+# You'll need gnuplot 4.6+, 
+# a postscript library and/or libpng, 
+# and if you're not using Mac OS X you'll
+# need to change the "aqua" terminal
+# settings, at the bottom.
+###########################################
+
+unset log
+unset label
+unset key
+unset arrow
+
+set xtics 0,10,200
+set ytics 0,0.5,3
+set title "4:3 Earth Propagation Diagram"
+set xlabel "Distance from QTH, in km"
+set ylabel "Kilometers"
+set angles degrees
+
+set style line 1 lt 1 lc rgb "#bbbbff"
+set style line 2 lt 1 lc rgb "#000000"
+set style line 3 lw 0.5 lt 1 lc rgb "#bbbbff"
+
+set style arrow 1 nohead lt 1  lc rgb "#bbbbff" back 
+set style arrow 2 nohead lt 2  lc rgb "#000000" front  
+
+baseradius = 6371.0
+radius=8500.0
+
+# Not fundamentally different (about 6 km):
+# radius = baseradius * 4 / 3
+# besides, 4/3 is an approximation anyway, and does not
+# account for thermal inversions, sporadic E, troposcatter, etc.,
+# so remember this whole exercise is *useful*, not *precise*.
+
+delta=0.0
+circ = 2.0 * pi * radius
+downrange = 200.0
+arc= (downrange/circ * 360.0)
+
+print " "
+print "============================================"
+print "radius = ", radius
+print "circumference = ", circ
+print "arc length (degrees) = " , arc
+halfarc = arc / 2
+onekm = asin(1/circ)
+print "one km of arc (degrees) = ",onekm
+offset1 = radius * cos(-1 * halfarc) - radius
+print "Y offset = ", offset1, " km. "
+print "============================================"
+print " "
+
+set xrange[0:downrange]
+mult=1.0
+set yrange[0:3]
+
+#######################################################################
+# The big y-position function for this arc:
+ypos(offset1, x, halfarc, mult, delta1) = \
+( ( (radius * cos( asin(x / radius) - halfarc ) ) - radius )  * mult ) \
+- offset1 + ( delta1/100.0 ) 
+
+#######################################################################
+
+set multiplot;
+    yorigin = radius - offset1
+    set size 1,1
+#    set origin 0,yorigin
+
+# For the series of plot statements, I wrote a short perl script:
+# #!/usr/bin/perl
+# use warnings;
+# use strict;
+# my ($i, $style); 
+# for ($i=0; $i<=240;$ i+= 4)                                                                                                                                                                                               
+# { 
+#     if ($i % 20 ) { $style= 3 } else { $style=2; }
+#     print "\t(x,ypos(offset1, x, halfarc, mult, $i ) ) ls $style , \\\n";
+# } 
+
+    plot \
+    (x,ypos(offset1, x, halfarc, mult, 0 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 4 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 8 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 12 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 16 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 20 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 24 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 28 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 32 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 36 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 40 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 44 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 48 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 52 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 56 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 60 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 64 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 68 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 72 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 76 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 80 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 84 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 88 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 92 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 96 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 100 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 104 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 108 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 112 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 116 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 120 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 124 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 128 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 132 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 136 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 140 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 144 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 148 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 152 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 156 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 160 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 164 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 168 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 172 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 176 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 180 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 184 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 188 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 192 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 196 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 200 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 204 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 208 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 212 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 216 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 220 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 224 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 228 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 232 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 236 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 240 ) ) ls 2
+
+do for [r=0:200:2] {
+    ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
+    ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )
+    set arrow from r, ypos1 to r, ypos2 as 1  
+}
+
+do for [r=0:210:10] {
+    ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
+    ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )
+    set arrow from r, ypos1 to r, ypos2 as 2 
+}
+
+unset multiplot 
+refresh
+
+set terminal postscript eps enhanced color "Times-Roman" 14 
+set output "FourThirdsPropagationPaper.ps"
+replot
+set terminal aqua 
+
+# EOF
