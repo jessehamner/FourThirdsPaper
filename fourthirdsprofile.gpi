@@ -1,0 +1,203 @@
+
+unset log
+unset label
+unset key
+unset arrow
+
+set xtics 0,10,200
+set ytics 0,0.5,3
+set title "\\vspace\{0.5in\}\{\\LARGE 4:3 Earth Propagation Diagram\}"
+set xlabel "\\vspace\{-0.5in\}\{\\Large Distance, in km\}"
+set ylabel "\{\\Large Elevation Relative to Lowest Profile Elevation, in km\}"
+set angles degrees
+
+set style line 1 lt 1 lc rgb "#bbbbff"
+set style line 2 lt 1 lc rgb "#000000"
+set style line 3 lw 0.5 lt 1 lc rgb "#bbbbff"
+set style line 4 lw 1 lt 1 lc rgb "#cc0000"
+
+set style arrow 1 nohead lt 1  lc rgb "#bbbbff" back 
+set style arrow 2 nohead lt 2  lc rgb "#000000" front  
+
+baseradius = 6371.0
+radius=8500.0
+
+# Not fundamentally different (about 6 km):
+# radius = baseradius * 4 / 3
+# besides, 4/3 is an approximation anyway, and does not
+# account for thermal inversions, sporadic E, troposcatter, etc.,
+# so remember this whole exercise is *useful*, not *precise*.
+
+delta=0.0
+circ = 2.0 * pi * radius
+downrange = 200.0
+arc= (downrange/circ * 360.0)
+
+halfarc = arc / 2
+onekm = asin(1/circ)
+offset1 = radius * cos(-1 * halfarc) - radius
+
+# Read in our elevation profile for some baseline info:
+
+# To make this elevation profile, I used GRASS GIS and the 
+# GTOPO global elevation data set (raster).
+#
+# It's worth making the region a bit smaller in GRASS before making the profile:
+# g.region n=40 s=20 e=-70 w=-100
+#
+# Then, in GRASS, type:
+# 
+# r.profile --verbose input=W100N40@gtopo1 output=profile.txt profile=-80.8328,35.4911,-82.5558, 35.5800 res=0.011014
+#
+# (note the resolution isn't critically important; I was doing that to try and get about 1 km 
+# of distance per data point as the crow flies)
+
+# Next, using that file, we can
+# get minimum elevation (will be "ground level" on the plot)
+# NOTE we convert from meters to kilometers:
+filename = "profile.txt"
+stats filename using ($1/1000):($2/1000) nooutput
+
+# for elevations in KILOMETERS:
+offset2= STATS_min_y
+fromxvalue = STATS_min_x
+toxvalue = STATS_max_x
+midpointoffset = (downrange/2) - ((STATS_max_x - STATS_min_x)/2)
+
+# To properly handle the labeling, one must create a separate file called labels.txt
+# If you know your start and end points, you can use -head- and -tail- to
+# create at least two of the points. You can add, by hand, other points along
+# the profile as desired.
+
+# echo `head -n 1 profile.txt` " Davidson" > labels.txt
+# echo "86500.000 390 \"Blue Ridge Distilling Co\" " >> labels.txt
+# echo `tail -n 1 profile.txt` " Asheville" >> labels.txt
+
+set xrange[0:downrange]
+mult=1.0
+set yrange[0:3]
+
+print " "
+print "============================================"
+print "radius = ", radius
+print "circumference = ", circ
+print "arc length (degrees) = " , arc
+print "one km of arc (degrees) = ",onekm
+print "Y offset = ", offset1, " km. "
+print "Downrange distance = ", downrange, " km. "
+print "============================================"
+print " "
+
+#######################################################################
+# The big y-position function for this arc:
+ypos(offset1, x, halfarc, mult, delta1) = \
+( ( (radius * cos( asin(x / radius) - halfarc ) ) - radius )  * mult ) \
+- offset1 + ( delta1/100.0 ) 
+
+#######################################################################
+
+    yorigin = radius - offset1
+    set size 2,2
+
+    plot \
+    (x,ypos(offset1, x, halfarc, mult, 0 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 4 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 8 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 12 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 16 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 20 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 24 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 28 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 32 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 36 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 40 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 44 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 48 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 52 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 56 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 60 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 64 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 68 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 72 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 76 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 80 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 84 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 88 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 92 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 96 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 100 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 104 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 108 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 112 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 116 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 120 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 124 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 128 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 132 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 136 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 140 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 144 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 148 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 152 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 156 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 160 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 164 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 168 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 172 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 176 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 180 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 184 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 188 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 192 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 196 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 200 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 204 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 208 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 212 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 216 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 220 ) ) ls 2 , \
+    (x,ypos(offset1, x, halfarc, mult, 224 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 228 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 232 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 236 ) ) ls 3 , \
+    (x,ypos(offset1, x, halfarc, mult, 240 ) ) ls 2 , \
+    filename using ($1/1000 + midpointoffset):(ypos((offset1+offset2), \
+($1/1000 + midpointoffset), halfarc, mult, 0) + $2/1000 ) with lines ls 4 ,\
+    'labels.txt' using ($1/1000 + midpointoffset):(ypos((offset1+offset2), \
+($1/1000 + midpointoffset),halfarc,mult,0) + $2/1000 ):3  \
+with labels point offset character 0,0.2 tc rgb "navy" rotate by 90 left 
+
+do for [r=0:200:2] {
+    ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
+    ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )
+    set arrow from r, ypos1 to r, ypos2 as 1  
+}
+
+do for [r=0:210:10] {
+    ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
+    ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )
+    set arrow from r, ypos1 to r, ypos2 as 2 
+}
+
+# Hard coded label examples no longer used:
+#set label 1 'Davidson' at (fromxvalue + midpointoffset),   front left  rotate by 90
+#set label 2 'Asheville' at (toxvalue + midpointoffset),   front left  rotate by 90
+
+# LaTeX and EPS output:
+set terminal epslatex color colourtext fontscale 1.0
+set output "inserteps1.tex"
+refresh
+
+# Postscript output:
+set title "4:3 Earth Propagation Diagram"
+set xlabel "Distance, in km"
+set ylabel "Elevation Relative to Lowest Profile Elevation, in km"
+
+set terminal postscript eps enhanced color "Times-Roman" 14 fontscale 2.0
+set output "FourThirdsPropagationProfile.ps"
+replot
+
+set output 
+set terminal aqua
+
+# EOF

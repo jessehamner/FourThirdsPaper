@@ -1,0 +1,3 @@
+0.000000 243 "Davidson"
+86500.000 395 "Blue Ridge Distilling Co"
+155925.224126 638 "Asheville"
