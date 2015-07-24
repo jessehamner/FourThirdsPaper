@@ -36,7 +36,7 @@ To make this elevation profile, I used GRASS GIS and the [GTOPO30](https://lta.c
 
 GTOPO30 DEM (digital elevation model) binary files are mostly 40 degrees wide (E-W) and 50 degrees tall (N-S), with exceptions near the South Pole that I won't go into.
 
-Without seeking to become a serious tutorial on GRASS GIS, to import a single GTOPO30 DEM, you would create a proper MAPSET and LOCATION, with a spatial (raster) resolution of 0.0083333 degrees, and type: 
+Without seeking to become a serious tutorial on GRASS GIS (see the [GRASS-WIKI](http://grasswiki.osgeo.org/wiki/GRASS_Help) for that), to import a single GTOPO30 DEM, you would create a proper MAPSET and LOCATION, with a spatial (raster) resolution of 0.0083333 degrees, and type: 
 ```
 g.region --o save="GTOPO_earth" n=90 s=-60 w=-180 e=180 res=0.0083333333333 --o
 
