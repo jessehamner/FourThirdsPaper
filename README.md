@@ -1,8 +1,8 @@
 # FourThirdsPaper
 Four-thirds radio propagation graph paper, made using [GNUplot]
-(http://www.gnuplot.info/)
+(http://www.gnuplot.info/).
 
-If you don't know what this even means, [read this Wikipedia Article first.](https://en.wikipedia.org/wiki/Non-line-of-sight_propagation).
+If you don't know what this even means, [read this Wikipedia Article first.](https://en.wikipedia.org/wiki/Non-line-of-sight_propagation)
 
 You might also want to read NAVELEX 0101,112, from May 1972
 as a useful extra study, found at [navy-radio.com](http://www.navy-radio.com),
@@ -12,18 +12,14 @@ I found that I needed this paper and couldn't find any online
 (EDIT: added links below).
 
 I have an example in the *International Microwave Handbook*,
-second edition (Andy Barter, ed.), and found a copy of a 
+second edition (Andy Barter, G8ATD, ed.), and found a copy of a 
 sheet of this kind of paper. I re-did the math myself 
 (*caveat emptor*) and confirmed that the tangents matched up 
 pretty well. 
 
 I did find two downloadable sheets at 
 [eeweb.com](http://www.eeweb.com/electronics-forum/43-earth-radius-graphs-used-for-rf-link-design) --
-[this one](http://s.eeweb.com/members/cody_miller/answers/1308244362-4-3-earth.pdf)
-and
-[this one](http://s.eeweb.com/members/cody_miller/answers/1308342903-4-3EarthRadius2.pdf)
-
-So interested users might like those as well. 
+[this one](http://s.eeweb.com/members/cody_miller/answers/1308244362-4-3-earth.pdf) and [this one](http://s.eeweb.com/members/cody_miller/answers/1308342903-4-3EarthRadius2.pdf), so interested users might like those as well. 
 
 --Jesse Hamner, June 2015
 
@@ -36,11 +32,20 @@ The profile automatically adjusts its minimum elevation to be zero, so for those
 
 I made my profiles using [GRASS GIS](http://grass.osgeo.org/), specifically its [r.profile](http://grass.osgeo.org/grass64/manuals/r.profile.html) page. 
 
-To make this elevation profile, I used GRASS GIS and the GTOPO global elevation data set (raster). Thus the r.profile command includes a map and GRASS LOCATION that are specific to that elevation raster.                                                                      
-It's worth making the region a bit smaller in GRASS before making the profile, though note that your region may not be the Southern USA:
+To make this elevation profile, I used GRASS GIS and the [GTOPO30](https://lta.cr.usgs.gov/GTOPO30) DEM global elevation data set (small Wikipedia stub is [here](https://en.wikipedia.org/wiki/GTOPO30)). Thus the <tt>r.profile</tt> command includes a map and GRASS LOCATION name that are specific to that elevation raster. I expect yours will be different.
+
+GTOPO30 DEM (digital elevation model) binary files are mostly 40 degrees wide (E-W) and 50 degrees tall (N-S), with exceptions near the South Pole that I won't go into.
+
+Without seeking to become a serious tutorial on GRASS GIS, to import a single GTOPO30 DEM, you would create a proper MAPSET and LOCATION, with a spatial (raster) resolution of 0.0083333 degrees, and type: 
 ```
-g.region n=40 s=20 e=-70 w=-100
+g.region --o save="GTOPO_earth" n=90 s=-60 w=-180 e=180 res=0.0083333333333 --o
+
+r.in.bin -s -b  --o input=W100N40.DEM output=W100N40 title="GTOPO DEM W100N40" bytes=2 cols=4800 anull=-9999 north=40 south=-10 east=-60 west=-100 rows=6000
+r.colors map=W100N40 rules=elevation
 ```
+
+You should pick your endpoints and use decimal degrees (noting that West and South are expressed as negative values). I use two example endpoints here.
+
 Then, in GRASS, type:
 ```
 r.profile --verbose input=W100N40@gtopo1 output=profile.txt profile=-80.8328,35.4911,-82.5558, 35.5800 res=0.011014
