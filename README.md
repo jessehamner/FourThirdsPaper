@@ -11,8 +11,8 @@ as a useful extra study, found at [navy-radio.com](http://www.navy-radio.com),
 I found that I needed this paper and couldn't find any online
 (EDIT: added links below).
 
-I have an example in the *International Microwave Handbook*,
-second edition (Andy Barter, G8ATD, ed.), and found a copy of a 
+I have an example in the [*International Microwave Handbook*,
+second edition](https://www.arrl.org/shop/International-Microwave-Handbook/) (Andy Barter, G8ATD, ed.), and found a copy of a 
 sheet of this kind of paper. I re-did the math myself 
 (*caveat emptor*) and confirmed that the tangents matched up 
 pretty well. 
