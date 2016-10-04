@@ -1,0 +1,5 @@
+1|-80.8328|35.4911|Davidson, NC
+2|-82.5580|35.5800|Asheville, NC
+3|-86.5833|34.7301|Huntsville, AL
+4|-86.5297|34.7350|Monte Sano Mountain, Huntsville, AL
+5|-84.0221|34.6891|Suches, GA
