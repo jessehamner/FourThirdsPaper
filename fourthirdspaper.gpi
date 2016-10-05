@@ -11,9 +11,9 @@ set xlabel "\\vspace\{-0.5in\}\{\\Large Distance from QTH, in km\}"
 set ylabel "\{\\Large Elevation (Kilometers)\}"
 set angles degrees
 
-set style line 1 lt 1 lc rgb "#bbbbff"
-set style line 2 lt 1 lc rgb "#000000"
-set style line 3 lw 0.5 lt 1 lc rgb "#bbbbff"
+set style line 1 lt 1 lc rgb "#bbbbff"          # light blue lines
+set style line 2 lt 1 lc rgb "#000000"          # black lines
+set style line 3 lw 0.5 lt 1 lc rgb "#bbbbff"   # thin light blue lines
 
 set style arrow 1 nohead lt 1  lc rgb "#bbbbff" back 
 set style arrow 2 nohead lt 2  lc rgb "#000000" front  
@@ -43,10 +43,14 @@ set yrange[0:3]
 print " "
 print "============================================"
 print "radius = ", radius
-print "circumference = ", circ
-print "arc length (degrees) = " , arc
-print "one km of arc (degrees) = ",onekm
-print "Y offset = ", offset1, " km. "
+circlabel = gprintf ("circumference = %0.3f km.", circ)
+print circlabel
+arclabel= gprintf("arc length (degrees) = %0.3f" , arc)
+print arclabel
+kmlabel= gprintf( "one km of arc (degrees) = %0.5f",onekm)
+print kmlabel
+offsetlabel=gprintf( "Y offset = %0.4f km.", offset1)
+print offsetlabel
 print "============================================"
 print " "
 
@@ -58,78 +62,24 @@ ypos(offset1, x, halfarc, mult, delta1) = \
 
 #######################################################################
 
+    midpointoffset=120
     yorigin = radius - offset1
     set size 2,2
 
-    plot \
-    (x,ypos(offset1, x, halfarc, mult, 0 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 4 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 8 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 12 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 16 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 20 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 24 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 28 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 32 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 36 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 40 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 44 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 48 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 52 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 56 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 60 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 64 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 68 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 72 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 76 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 80 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 84 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 88 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 92 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 96 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 100 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 104 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 108 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 112 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 116 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 120 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 124 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 128 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 132 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 136 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 140 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 144 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 148 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 152 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 156 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 160 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 164 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 168 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 172 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 176 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 180 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 184 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 188 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 192 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 196 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 200 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 204 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 208 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 212 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 216 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 220 ) ) ls 2 , \
-    (x,ypos(offset1, x, halfarc, mult, 224 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 228 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 232 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 236 ) ) ls 3 , \
-    (x,ypos(offset1, x, halfarc, mult, 240 ) ) ls 2
+# The -plot- statement, here with loops to make the graphing paper grids.
+# first blue lines, then black lines at larger intervals:
+    plot for [i=0:240:4] (x, ypos(offset1, x, halfarc, mult, i) ) ls 3 , \
+\
+for [i=0:240:20] (x, ypos(offset1, x, halfarc, mult, i) ) ls 2
 
+# thinner vertical lines:
 do for [r=0:200:2] {
     ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
     ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )
     set arrow from r, ypos1 to r, ypos2 as 1  
 }
 
+# thicker vertical lines:
 do for [r=0:210:10] {
     ypos1 = ypos(offset1, r, halfarc, mult, 0.0 )
     ypos2 = ypos(offset1, r, halfarc, mult, 240.0 )

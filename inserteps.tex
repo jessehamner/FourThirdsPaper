@@ -24,7 +24,7 @@
   }{}%
   \@ifundefined{ifGPblacktext}{%
     \newif\ifGPblacktext
-    \GPblacktexttrue
+    \GPblacktextfalse
   }{}%
   % define a \g@addto@macro without @ in the name:
   \let\gplgaddtomacro\g@addto@macro
@@ -113,7 +113,7 @@
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%
-      \put(176,5061){\rotatebox{-270}{\makebox(0,0){\strut{}{\Large Elevation (Kilometers)}}}}%
+      \put(176,5061){\rotatebox{-270}{\makebox(0,0){\Large Elevation (Kilometers)}}}%
       \put(7474,154){\makebox(0,0){\strut{}\vspace{-0.5in}{\Large Distance from QTH, in km}}}%
       \put(7474,9748){\makebox(0,0){\strut{}\vspace{0.5in}{\LARGE 4:3 Earth Propagation Diagram}}}%
     }%

@@ -1,7 +1,7 @@
 %!PS-Adobe-2.0 EPSF-2.0
 %%Title: FourThirdsPropagationPaper.ps
-%%Creator: gnuplot 5.0 patchlevel 0
-%%CreationDate: Mon Jun 29 13:26:09 2015
+%%Creator: gnuplot 5.0 patchlevel 3
+%%CreationDate: Tue Oct  4 22:31:34 2016
 %%DocumentFonts: (atend)
 %%BoundingBox: 50 50 770 554
 %%EndComments
@@ -48,7 +48,7 @@ gnudict begin
   } if
 } def
 %
-% Gnuplot Prolog Version 5.0 (Dec 2014)
+% Gnuplot Prolog Version 5.1 (Oct 2015)
 %
 %/SuppressPDFMark true def
 %
@@ -97,8 +97,9 @@ gnudict begin
 /LC7 {1 0.3 0} def
 /LC8 {0.5 0.5 0.5} def
 % Default dash patterns (version 5.0)
+/LTB {BL [] LCb DL} def
 /LTw {PL [] 1 setgray} def
-/LTb {BL [] LCb DL} def
+/LTb {PL [] LCb DL} def
 /LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
 /LT0 {PL [] LC0 DL} def
 /LT1 {PL [2 dl1 3 dl2] LC1 DL} def
@@ -465,15 +466,14 @@ systemdict /pdfmark known not {
 SDict begin [
   /Title (FourThirdsPropagationPaper.ps)
   /Subject (gnuplot plot)
-  /Creator (gnuplot 5.0 patchlevel 0)
-  /Author (jhh0085)
+  /Creator (gnuplot 5.0 patchlevel 3)
+  /Author (jhamner)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Mon Jun 29 13:26:09 2015)
+  /CreationDate (Tue Oct  4 22:31:34 2016)
   /DOCINFO pdfmark
 end
 } ifelse
-end
 %
 % Support for boxed text - Ethan A Merritt May 2005
 %
@@ -499,6 +499,10 @@ end
 /Boxing false def
 /textshow { ExtendTextBox Gshow } def
 %
+% redundant definitions for compatibility with prologue.ps older than 5.0.2
+/LTB {BL [] LCb DL} def
+/LTb {PL [] LCb DL} def
+end
 %%EndProlog
 %%Page: 1 1
 gnudict begin
@@ -822,7 +826,7 @@ stroke
 LTb
 LCb setrgbcolor
 1.000 UL
-LTb
+LTB
 LCb setrgbcolor
 1372 9238 N
 0 -8342 V
@@ -1255,9 +1259,9 @@ LCb setrgbcolor
 [ [(Times-Roman) 280.0 0.0 true true 0 (4:3 Earth Propagation Diagram)]
 ] -93.3 MCshow
 % Begin plot #1
-1.000 UL
+0.500 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 /vshift -93 def
 1372 896 M
 126 65 V
@@ -1362,7 +1366,6 @@ LTb
 % End plot #1
 % Begin plot #2
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 1007 M
@@ -1783,9 +1786,8 @@ LTb
 % End plot #5
 % Begin plot #6
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 1452 M
 126 66 V
 127 64 V
@@ -1889,7 +1891,6 @@ LTb
 % End plot #6
 % Begin plot #7
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 1563 M
@@ -2310,9 +2311,8 @@ LTb
 % End plot #10
 % Begin plot #11
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 2008 M
 126 66 V
 127 64 V
@@ -2416,7 +2416,6 @@ LTb
 % End plot #11
 % Begin plot #12
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 2119 M
@@ -2837,9 +2836,8 @@ LTb
 % End plot #15
 % Begin plot #16
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 2564 M
 126 66 V
 127 64 V
@@ -2943,7 +2941,6 @@ LTb
 % End plot #16
 % Begin plot #17
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 2676 M
@@ -3364,9 +3361,8 @@ LTb
 % End plot #20
 % Begin plot #21
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 3121 M
 126 65 V
 127 64 V
@@ -3470,7 +3466,6 @@ LTb
 % End plot #21
 % Begin plot #22
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 3232 M
@@ -3891,9 +3886,8 @@ LTb
 % End plot #25
 % Begin plot #26
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 3677 M
 126 65 V
 127 64 V
@@ -3997,7 +3991,6 @@ LTb
 % End plot #26
 % Begin plot #27
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 3788 M
@@ -4418,9 +4411,8 @@ LTb
 % End plot #30
 % Begin plot #31
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 4233 M
 126 65 V
 127 64 V
@@ -4524,7 +4516,6 @@ LTb
 % End plot #31
 % Begin plot #32
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 4344 M
@@ -4945,9 +4936,8 @@ LTb
 % End plot #35
 % Begin plot #36
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 4789 M
 126 65 V
 127 64 V
@@ -5051,7 +5041,6 @@ LTb
 % End plot #36
 % Begin plot #37
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 4900 M
@@ -5472,9 +5461,8 @@ LTb
 % End plot #40
 % Begin plot #41
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 5345 M
 126 65 V
 127 65 V
@@ -5578,7 +5566,6 @@ LTb
 % End plot #41
 % Begin plot #42
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 5456 M
@@ -5999,9 +5986,8 @@ LTb
 % End plot #45
 % Begin plot #46
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 5901 M
 126 66 V
 127 64 V
@@ -6105,7 +6091,6 @@ LTb
 % End plot #46
 % Begin plot #47
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 6012 M
@@ -6526,9 +6511,8 @@ LTb
 % End plot #50
 % Begin plot #51
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 6457 M
 126 66 V
 127 64 V
@@ -6632,7 +6616,6 @@ LTb
 % End plot #51
 % Begin plot #52
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 6569 M
@@ -7053,9 +7036,8 @@ LTb
 % End plot #55
 % Begin plot #56
 stroke
-1.000 UL
 LTb
-0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 7013 M
 126 66 V
 127 64 V
@@ -7159,7 +7141,6 @@ LTb
 % End plot #56
 % Begin plot #57
 stroke
-0.500 UL
 LTb
 0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
 1372 7125 M
@@ -7580,7 +7561,1372 @@ LTb
 % End plot #60
 % Begin plot #61
 stroke
+LTb
+0.73 0.73 1.00 C /Times-Roman findfont 280 scalefont setfont
+1372 7570 M
+126 65 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 57 V
+126 54 V
+127 54 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 34 V
+127 32 V
+126 30 V
+127 30 V
+126 28 V
+127 26 V
+126 26 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -22 V
+126 -22 V
+127 -24 V
+126 -26 V
+127 -26 V
+126 -28 V
+127 -30 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -46 V
+126 -46 V
+127 -48 V
+126 -50 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -62 V
+126 -62 V
+127 -65 V
+126 -65 V
+% End plot #61
+% Begin plot #62
+stroke
 1.000 UL
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 896 M
+126 65 V
+127 65 V
+126 62 V
+127 62 V
+126 60 V
+127 58 V
+126 58 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 46 V
+126 44 V
+127 42 V
+126 42 V
+127 40 V
+126 38 V
+127 38 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 2 V
+126 -1 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -34 V
+127 -34 V
+126 -36 V
+127 -38 V
+126 -38 V
+127 -41 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -54 V
+126 -54 V
+127 -57 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+125 -65 V
+% End plot #62
+% Begin plot #63
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 1452 M
+126 66 V
+127 64 V
+126 62 V
+127 62 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 49 V
+127 49 V
+126 46 V
+127 46 V
+126 44 V
+127 42 V
+126 42 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 18 V
+126 16 V
+127 14 V
+126 14 V
+127 12 V
+126 10 V
+127 10 V
+126 8 V
+127 6 V
+126 6 V
+127 4 V
+126 2 V
+127 2 V
+126 0 V
+127 -2 V
+126 -2 V
+127 -4 V
+126 -6 V
+127 -6 V
+126 -8 V
+127 -10 V
+126 -10 V
+127 -12 V
+126 -14 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -38 V
+126 -38 V
+127 -40 V
+126 -42 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -54 V
+126 -54 V
+127 -56 V
+126 -58 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #63
+% Begin plot #64
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 2008 M
+126 66 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 50 V
+127 48 V
+126 46 V
+127 46 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 25 V
+126 22 V
+126 22 V
+127 20 V
+126 18 V
+127 18 V
+126 16 V
+127 14 V
+126 14 V
+127 12 V
+126 10 V
+127 10 V
+126 8 V
+127 6 V
+126 6 V
+127 4 V
+126 2 V
+127 2 V
+126 0 V
+127 -2 V
+126 -2 V
+127 -4 V
+126 -6 V
+127 -6 V
+126 -8 V
+127 -10 V
+126 -10 V
+127 -12 V
+126 -14 V
+127 -14 V
+126 -16 V
+127 -18 V
+126 -18 V
+127 -21 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -42 V
+127 -42 V
+126 -44 V
+127 -46 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -58 V
+127 -58 V
+126 -61 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #64
+% Begin plot #65
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 2564 M
+126 66 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 54 V
+126 52 V
+127 50 V
+126 50 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 29 V
+127 26 V
+126 26 V
+127 24 V
+126 22 V
+126 22 V
+127 20 V
+126 18 V
+127 18 V
+126 16 V
+127 14 V
+126 14 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -10 V
+126 -10 V
+127 -12 V
+126 -14 V
+127 -14 V
+126 -16 V
+127 -18 V
+126 -18 V
+127 -20 V
+126 -22 V
+126 -22 V
+127 -24 V
+126 -26 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -42 V
+127 -42 V
+126 -44 V
+127 -46 V
+126 -46 V
+127 -49 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -58 V
+127 -58 V
+126 -60 V
+127 -62 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #65
+% Begin plot #66
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 3121 M
+126 65 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 57 V
+126 54 V
+127 54 V
+126 52 V
+127 50 V
+126 50 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 34 V
+127 32 V
+126 30 V
+127 30 V
+126 28 V
+127 26 V
+126 26 V
+127 24 V
+126 22 V
+126 22 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -18 V
+126 -18 V
+127 -20 V
+126 -22 V
+126 -22 V
+127 -24 V
+126 -26 V
+127 -26 V
+126 -28 V
+127 -30 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -46 V
+126 -46 V
+127 -48 V
+126 -50 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -62 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #66
+% Begin plot #67
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 3677 M
+126 65 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 58 V
+127 56 V
+126 54 V
+127 54 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 37 V
+127 34 V
+126 34 V
+127 32 V
+126 30 V
+127 30 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -26 V
+127 -26 V
+126 -28 V
+127 -30 V
+126 -30 V
+127 -32 V
+126 -34 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -50 V
+127 -50 V
+126 -53 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -62 V
+126 -62 V
+127 -64 V
+126 -66 V
+% End plot #67
+% Begin plot #68
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 4233 M
+126 65 V
+127 64 V
+126 63 V
+127 61 V
+126 61 V
+127 58 V
+126 58 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 41 V
+126 38 V
+127 38 V
+126 36 V
+127 34 V
+126 34 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -30 V
+126 -30 V
+127 -32 V
+126 -34 V
+127 -34 V
+126 -37 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -50 V
+127 -50 V
+126 -52 V
+127 -54 V
+126 -55 V
+127 -56 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -66 V
+% End plot #68
+% Begin plot #69
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 4789 M
+126 65 V
+127 64 V
+126 63 V
+127 62 V
+126 60 V
+127 58 V
+126 58 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 42 V
+127 40 V
+126 38 V
+127 38 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -34 V
+127 -34 V
+126 -36 V
+127 -38 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -54 V
+126 -54 V
+127 -57 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -66 V
+% End plot #69
+% Begin plot #70
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 5345 M
+126 65 V
+127 65 V
+126 62 V
+127 62 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 49 V
+127 48 V
+126 47 V
+127 46 V
+126 44 V
+127 42 V
+126 42 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 20 V
+126 19 V
+127 17 V
+126 16 V
+127 15 V
+126 13 V
+127 13 V
+126 10 V
+127 10 V
+126 8 V
+127 6 V
+126 6 V
+127 4 V
+126 2 V
+127 2 V
+126 0 V
+127 -2 V
+126 -2 V
+127 -4 V
+126 -6 V
+127 -6 V
+126 -8 V
+127 -10 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -17 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -38 V
+126 -38 V
+127 -40 V
+126 -42 V
+127 -43 V
+126 -44 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -54 V
+126 -54 V
+127 -56 V
+126 -58 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -66 V
+% End plot #70
+% Begin plot #71
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 5901 M
+126 66 V
+127 64 V
+126 62 V
+127 62 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 53 V
+126 52 V
+127 51 V
+126 50 V
+127 48 V
+126 46 V
+127 46 V
+126 44 V
+127 42 V
+126 42 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 25 V
+127 24 V
+126 23 V
+126 21 V
+127 21 V
+126 18 V
+127 18 V
+126 16 V
+127 14 V
+126 14 V
+127 12 V
+126 10 V
+127 10 V
+126 8 V
+127 6 V
+126 6 V
+127 4 V
+126 2 V
+127 2 V
+126 0 V
+127 -2 V
+126 -2 V
+127 -4 V
+126 -6 V
+127 -6 V
+126 -8 V
+127 -10 V
+126 -10 V
+127 -12 V
+126 -14 V
+127 -14 V
+126 -16 V
+127 -18 V
+126 -19 V
+127 -20 V
+126 -21 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -38 V
+126 -38 V
+127 -40 V
+126 -42 V
+127 -42 V
+126 -45 V
+127 -45 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -58 V
+127 -59 V
+126 -60 V
+127 -61 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #71
+% Begin plot #72
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 6457 M
+126 66 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 53 V
+126 53 V
+127 50 V
+126 50 V
+127 48 V
+126 46 V
+127 46 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 29 V
+126 28 V
+127 27 V
+126 26 V
+127 24 V
+126 22 V
+126 22 V
+127 20 V
+126 18 V
+127 18 V
+126 16 V
+127 14 V
+126 14 V
+127 12 V
+126 10 V
+127 10 V
+126 8 V
+127 6 V
+126 6 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -2 V
+126 -2 V
+127 -4 V
+126 -6 V
+127 -6 V
+126 -8 V
+127 -10 V
+126 -10 V
+127 -12 V
+126 -14 V
+127 -14 V
+126 -16 V
+127 -18 V
+126 -18 V
+127 -20 V
+126 -22 V
+126 -23 V
+127 -24 V
+126 -25 V
+127 -27 V
+126 -28 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -42 V
+127 -42 V
+126 -44 V
+127 -46 V
+126 -47 V
+127 -48 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -58 V
+127 -58 V
+126 -60 V
+127 -62 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #72
+% Begin plot #73
+stroke
+LTb
+0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
+1372 7013 M
+126 66 V
+127 64 V
+126 63 V
+127 61 V
+126 60 V
+127 59 V
+126 57 V
+127 56 V
+126 55 V
+127 54 V
+126 52 V
+127 50 V
+126 50 V
+127 48 V
+126 47 V
+127 45 V
+126 44 V
+127 43 V
+126 41 V
+127 40 V
+126 39 V
+127 37 V
+126 36 V
+127 35 V
+126 33 V
+127 32 V
+126 31 V
+127 30 V
+126 28 V
+127 26 V
+126 26 V
+127 24 V
+126 22 V
+126 22 V
+127 20 V
+126 18 V
+127 18 V
+126 16 V
+127 15 V
+126 13 V
+127 12 V
+126 11 V
+127 9 V
+126 8 V
+127 7 V
+126 5 V
+127 4 V
+126 3 V
+127 1 V
+126 0 V
+127 -1 V
+126 -3 V
+127 -4 V
+126 -5 V
+127 -7 V
+126 -8 V
+127 -9 V
+126 -11 V
+127 -12 V
+126 -13 V
+127 -15 V
+126 -16 V
+127 -18 V
+126 -18 V
+127 -20 V
+126 -22 V
+126 -22 V
+127 -24 V
+126 -26 V
+127 -26 V
+126 -29 V
+127 -29 V
+126 -31 V
+127 -32 V
+126 -33 V
+127 -35 V
+126 -36 V
+127 -37 V
+126 -39 V
+127 -40 V
+126 -41 V
+127 -43 V
+126 -44 V
+127 -46 V
+126 -46 V
+127 -49 V
+126 -49 V
+127 -51 V
+126 -52 V
+127 -53 V
+126 -55 V
+127 -56 V
+126 -57 V
+127 -59 V
+126 -60 V
+127 -62 V
+126 -63 V
+127 -64 V
+126 -65 V
+% End plot #73
+% Begin plot #74
+stroke
 LTb
 0.00 0.00 0.00 C /Times-Roman findfont 280 scalefont setfont
 1372 7570 M
@@ -7683,13 +9029,13 @@ LTb
 126 -62 V
 127 -65 V
 126 -65 V
-% End plot #61
+% End plot #74
 stroke
 2.000 UL
 LTb
 LCb setrgbcolor
 1.000 UL
-LTb
+LTB
 LCb setrgbcolor
 1372 9238 N
 0 -8342 V
