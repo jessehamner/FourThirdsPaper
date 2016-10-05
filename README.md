@@ -58,4 +58,14 @@ echo `head -n 1 profile.txt` " Davidson" > labels.txt
 echo "86500.000 390 \"Blue Ridge Distilling Co\" " >> labels.txt
 echo `tail -n 1 profile.txt` " Asheville" >> labels.txt
 ```
- 
+
+Mostly as a public service, but also as a note to myself, here's a nice way to use ImageMagick to convert the LaTeX pdf output to a nice-enough-looking PNG file. 
+
+```[shell]
+convert -trim -background white -alpha off -density 400 -border 20 -bordercolor white FourThirdsPropagationPaper.pdf 43prop.png
+```
+
+Here's the result:
+
+![Image of Four Thirds Paper](https://github.com/jessehamner/FourThirdsPaper/blob/master/43prop.png)
+
